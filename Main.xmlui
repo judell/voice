@@ -1,0 +1,41 @@
+<App name="Voice" var.phase="idle" var.hasText="{false}">
+  <AppHeader>
+    <Text>Voice</Text>
+  </AppHeader>
+  <VStack padding="$space-4" gap="$space-3">
+    <External
+      id="voiceEvent"
+      initial="{null}"
+      subscribe="{window.voiceSubscribe()}" />
+    <ChangeListener
+      listenTo="{voiceEvent.value &amp;&amp; voiceEvent.value.at}"
+      onDidChange="() =&gt; { const ev = voiceEvent.value || null; if (ev &amp;&amp; ev.phase) phase = ev.phase; if (ev &amp;&amp; ev.result) transcript.insert(window.voiceInsertText(ev.transcript)); }" />
+    <HStack verticalAlignment="center" height="2.5rem">
+      <HStack width="2.25rem" height="2.25rem" verticalAlignment="center" horizontalAlignment="center">
+        <Theme width-Button="2.25rem" height-Button="2.25rem" padding-Button="0">
+          <Button
+            when="{phase === 'idle' || phase === 'recording'}"
+            label="{phase === 'idle' ? '🎤' : ''}"
+            icon="{phase === 'recording' ? 'stop' : ''}"
+            contextualLabel="{phase === 'recording' ? 'Stop recording' : 'Start recording'}"
+            variant="ghost"
+            onClick="phase = window.voiceToggle()" />
+        </Theme>
+        <Theme size-Spinner="1em">
+          <Spinner when="{phase === 'starting' || phase === 'processing'}" delay="0" />
+        </Theme>
+      </HStack>
+      <Theme width-Button="2.25rem" height-Button="2.25rem" padding-Button="0">
+        <Button
+          when="{hasText}"
+          icon="copy"
+          contextualLabel="Copy transcript"
+          variant="ghost"
+          onClick="window.voiceCopy(transcript.value)" />
+      </Theme>
+    </HStack>
+    <TextArea id="transcript" autoSize="true" minRows="8"
+              onDidChange="(value) =&gt; hasText = !!(value &amp;&amp; value.trim())"
+              placeholder="Click Record and start speaking..." />
+  </VStack>
+</App>
