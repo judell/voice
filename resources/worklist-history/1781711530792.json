@@ -1,0 +1,18 @@
+{
+  "description": "",
+  "items": [
+    {
+      "after": "Track the final prune bookkeeping in the repository, then push the history\ncommit to `origin/main`.\n\nThis leaves the remote repo with the durable Bram history and a clean empty\nworklist state.",
+      "before": "The durable Bram history commit exists locally, but after `track-bram-history`\nwas committed, Bram generated the final prune bookkeeping:\n\n- `resources/worklist.json` is now empty again.\n- `resources/worklist-history/1781711489580.json` records the prune event.\n- `resources/worklist-history/1781711489580.md` records the human-readable prune\n  history.\n\nThose generated history changes are not covered by an active worklist item, so\nthe guard blocks staging and pushing while they remain uncommitted.",
+      "files": [
+        "resources/worklist.json",
+        "resources/worklist-drafts/publish-pruned-history-state.md",
+        "resources/worklist-history/1781711489580.json",
+        "resources/worklist-history/1781711489580.md"
+      ],
+      "id": "publish-pruned-history-state",
+      "status": "proposed"
+    }
+  ],
+  "version": 7
+}

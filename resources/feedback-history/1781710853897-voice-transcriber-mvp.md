@@ -1,0 +1,1 @@
+When I stop at a space so that when I pick up again, I don 't have to add one manually.

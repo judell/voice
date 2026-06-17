@@ -1,0 +1,20 @@
+{
+  "description": "",
+  "items": [
+    {
+      "after": "Track the durable Bram worklist history in the repository:\n\n- `resources/worklist.json`\n- `resources/worklist-drafts/`\n- `resources/worklist-history/`\n- `resources/feedback-history/`\n\nAdd a repo `.gitignore` that ignores only volatile Bram runtime artifacts:\n\n- `resources/.bram-port`\n- `resources/.bram-port.json`\n- `resources/.worklist-authorization.json`\n- `resources/.worklist-intent.json`\n- `resources/.worklist-result.json`\n- `resources/bram-traces/`\n- `resources/feedback-drafts/`\n\nThis keeps the audit/history trail commit-ready while avoiding local IPC,\nports, temporary feedback drafts, and logs.",
+      "before": "The voice transcriber MVP is committed, but Bram's durable history files under\n`resources/` are still untracked. That leaves the project history in the working\ncopy only.\n\n`resources/` also contains runtime-only files such as the active port, worklist\nauthorization/result handoff files, and trace logs. Those should remain local\nbecause they are machine/session state rather than project history.",
+      "files": [
+        ".gitignore",
+        "resources/worklist.json",
+        "resources/worklist-drafts/track-bram-history.md",
+        "resources/worklist-drafts/voice-transcriber-mvp.md",
+        "resources/worklist-history/",
+        "resources/feedback-history/"
+      ],
+      "id": "track-bram-history",
+      "status": "applied"
+    }
+  ],
+  "version": 5
+}

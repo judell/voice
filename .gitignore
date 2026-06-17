@@ -1,0 +1,7 @@
+resources/.bram-port
+resources/.bram-port.json
+resources/.worklist-authorization.json
+resources/.worklist-intent.json
+resources/.worklist-result.json
+resources/bram-traces/
+resources/feedback-drafts/

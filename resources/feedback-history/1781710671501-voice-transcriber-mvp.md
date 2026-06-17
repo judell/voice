@@ -1,0 +1,1 @@
+Put the spinner in the same location as the microphone and the stop button.

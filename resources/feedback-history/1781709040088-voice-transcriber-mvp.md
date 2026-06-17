@@ -1,0 +1,1 @@
+Hey, Codex, we're iterating on this transcription app. We had it working initially and then Claude broke it. Can you check?

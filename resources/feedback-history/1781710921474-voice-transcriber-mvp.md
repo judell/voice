@@ -1,0 +1,1 @@
+When there is text in the box, provide a copy button to copy to the clipboard.

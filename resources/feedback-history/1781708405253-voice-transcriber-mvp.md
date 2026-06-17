@@ -1,0 +1,1 @@
+It's pretty good. I'd like to be able to insert at the cursor as opposed to always a pending.
